@@ -5,9 +5,13 @@
 
 body {
   background-color: #111;
+  color: white;
 }
 
 /* header */
+header {
+  margin-bottom: 100px;
+}
 
 .navbar {
   background-color: transparent;
@@ -26,6 +30,12 @@ body {
   transition: 0.2s;
 }
 
+.navbar .left_container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
 .navbar ul {
   display: flex;
   align-items: center;
@@ -56,6 +66,7 @@ body {
 
 .logo img {
   width: 100%;
+  margin-top: 8px;
 }
 
 .navbar select {
@@ -68,6 +79,7 @@ body {
 
 .show_hidden {
   display: none;
+  opacity: 0;
 }
 
 .search_button {
@@ -94,16 +106,30 @@ body {
 }
 
 /*모바일 뷰 */
-@media (max-width: 768px) {
+@media (max-width: 830px) {
+  header {
+    display: flex;
+    justify-content: center;
+  }
+  .navbar {
+    justify-content: space-between;
+    width: 85%;
+  }
+
+  .right_container {
+    display: flex;
+    justify-content: end;
+  }
+
   .navbar ul {
     display: none;
   }
 
   .navbar select {
     display: block;
-    width: 10%;
+    width: wrap-content;
     padding: 10px;
-    background-color: #333;
+    background-color: #111;
     color: white;
     border: none;
     outline: none;

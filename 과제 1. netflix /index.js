@@ -19,7 +19,9 @@ searchButton.addEventListener("click", () => {
 
 document.addEventListener("click", (e) => {
   if (e.target !== searchInput && e.target !== searchButton) {
-    searchButton.classList.toggle("show_hidden");
-    searchInput.classList.toggle("show_hidden");
+    if (searchButton.classList.contains("show_hidden")) {
+      searchButton.classList.toggle("show_hidden");
+      searchInput.classList.toggle("show_hidden");
+    }
   }
 });
