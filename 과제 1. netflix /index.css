@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #111;
+}
+
+/* header */
+
+.navbar {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar.scrolled {
+  background-color: #111;
+  transition: 0.2s;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar li {
+  list-style: none;
+  padding: 1rem;
+}
+
+.navbar li a {
+  padding: 2px 2px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar li a:hover {
+  color: gray;
+}
+
+.logo {
+  height: 45px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.navbar select {
+  display: none;
+}
+
+.searchbar {
+  position: relative;
+}
+
+.show_hidden {
+  display: none;
+}
+
+.search_button {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+.search_input {
+  padding: 5px 10px;
+  border: 1px solid #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.search_img {
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+/*모바일 뷰 */
+@media (max-width: 768px) {
+  .navbar ul {
+    display: none;
+  }
+
+  .navbar select {
+    display: block;
+    width: 10%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    outline: none;
+  }
+
+  .navbar select option {
+    padding: 10px;
+    margin-top: 50px;
+  }
+}
