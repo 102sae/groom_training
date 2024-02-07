@@ -296,6 +296,7 @@ body {
   margin-right: 10px;
   border-radius: 4px;
   transition: transform 450ms;
+  /*첫번째 프로그램일 경우 */
   transform-origin: left center;
 }
 
@@ -330,4 +331,35 @@ body {
     border-radius: 4px;
     transition: transform 450ms;
   }
+}
+
+/* footer */
+.footer {
+  width: 70%;
+  margin: 0 auto 30px auto;
+  color: gray;
+  font-size: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #111;
+}
+
+.footer-item a {
+  color: gray;
+  text-decoration: none;
+}
+
+.footer-item a:hover {
+  text-decoration: underline;
+}
+
+.footer p {
+  margin-left: 18px;
 }
