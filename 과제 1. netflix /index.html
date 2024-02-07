@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
   </head>
   <body>
     <!-- header -->
-    <header>
+    <header class="header">
       <nav class="navbar">
         <div class="left_container">
         <!-- 로고 -->
@@ -76,15 +77,26 @@
 
     <main>
       <!-- banner -->
+
+
       <div class="banner">
         <div class="banner_contents">
-          <h1 class="banner_title">종이의 집</h1>
+          <img class="banner_title" src="./assets/images/banner_title.png" alt="title" />
+
+          <video class="banner_content" autoplay muted loop>
+            <source src="assets/video/banner_video.mp4" type="video/mp4" />
           
+          </video>
+          <p class="banner_description">1명의 천재, 8명의 공범, 철저히 준비한 세기의 강도. <br/>스페인 조폐국에서 인질극까지 벌인 이들은 과연 포위 경찰을 </br>  따돌리고 거액의 돈과 함께 달아날 수 있을까?</p>
           <div class="banner_btn">
-            <button>재생</button>
-            <button>상세 정보</button>
+            <button >
+             <img src="./assets/icons/play.svg" alt="play" />
+              <p>재생</p>  
+            </button>
+            <button>
+              <img src="./assets/icons/info.svg" alt="info" />
+              상세 정보</button>
           </div>
-          <p class="banner_description">역사상 최대 규모의 강도 사건을 수행하기 위해 </br> 교수라는 의문의 남자가 강도 8인단을 구출하는데...</p>
         </div>
       </div>
       <!-- Netflix original -->

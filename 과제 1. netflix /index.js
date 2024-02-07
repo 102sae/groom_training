@@ -1,5 +1,5 @@
 window.addEventListener("scroll", () => {
-  const navbar = document.querySelector(".navbar");
+  const navbar = document.querySelector(".header");
   if (window.scrollY > 0) {
     console.log("scrolled");
     console.log(navbar.classList);

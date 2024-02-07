@@ -6,28 +6,33 @@
 body {
   background-color: #111;
   color: white;
+  font-family: "NanumSquare", sans-serif;
+  font-weight: 300;
 }
 
 /* header */
-header {
-  margin-bottom: 100px;
-}
-
-.navbar {
-  background-color: transparent;
+.header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
+  height: 52px;
+  background-color: transparent;
 }
 
-.navbar.scrolled {
+.header.scrolled {
   background-color: #111;
   transition: 0.2s;
+}
+
+.navbar {
+  width: 95vw;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 30px;
+  font-size: 0.8rem;
 }
 
 .navbar .left_container {
@@ -54,7 +59,8 @@ header {
 }
 
 .navbar li a:hover {
-  color: gray;
+  color: #787878;
+  transition: 0.3s;
 }
 
 .logo {
@@ -139,4 +145,66 @@ header {
     padding: 10px;
     margin-top: 50px;
   }
+}
+
+/*banner*/
+.banner {
+  margin-bottom: 180px;
+}
+.banner_contents {
+  margin-left: 30px;
+  padding-top: 240px;
+}
+
+.banner_content {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.banner_title {
+  width: 60%;
+  padding-bottom: 0.3rem;
+}
+
+.banner_btn {
+  padding: 0.5rem 0.5rem;
+  width: 50%;
+  display: flex;
+  gap: 10px;
+}
+
+.banner_btn button {
+  padding: 3px 16px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.banner_content :first-child {
+  background-color: white;
+}
+
+.banner_btn button:nth-child(2) {
+  background-color: rgba(128, 127, 127, 0.33);
+  color: white;
+}
+
+.banner_btn button img {
+  width: 40px;
+}
+
+.banner_btn button:hover {
+  background-color: rgb(171, 163, 163);
+  cursor: pointer;
+}
+
+.banner_description {
+  line-height: 1.5;
+  font-size: 1rem;
+  padding: 0.5rem 0.5rem;
 }
