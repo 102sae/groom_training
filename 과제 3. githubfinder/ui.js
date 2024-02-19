@@ -77,10 +77,10 @@ export class UI {
     const container = document.querySelector(".searchContainer");
     const search = document.querySelector(".search");
     container.insertBefore(div, search);
-    //3초가 지나면 alert가 사라짐
+    //1초가 지나면 alert가 사라짐
     setTimeout(() => {
       this.clearAlert();
-    }, 3000);
+    }, 1000);
   }
 
   clearAlert() {
