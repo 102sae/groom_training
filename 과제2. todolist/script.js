@@ -70,6 +70,10 @@ function createTodoElement(item) {
     item.text = e.target.value;
   });
   console.log(todos);
+  //input 수정 방지 이벤트
+  inputEl.addEventListener("blur", () => {
+    inputEl.setAttribute("disabled", "");
+  });
   //checkbox 클릭 이벤트
   checkbox.addEventListener("change", (e) => {
     item.complete = e.target.checked;
@@ -78,6 +82,16 @@ function createTodoElement(item) {
     } else {
       itemEl.classList.remove("complete");
     }
+  });
+  //수정 버튼 클릭
+  editBtnEl.addEventListener("click", () => {
+    inputEl.removeAttribute("disabled");
+    inputEl.focus();
+  });
+  //삭제 버튼 클릭
+  removeBtnEl.addEventListener("click", () => {
+    itemEl.remove();
+    todos = todos.filter((todo) => todo.id !== item.id);
   });
 
   return { itemEl, inputEl, editBtnEl, removeBtnEl };
