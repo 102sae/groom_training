@@ -67,4 +67,30 @@ export class UI {
 
     document.getElementById("repos").innerHTML = output;
   }
+
+  showAlert(message, className) {
+    this.clearAlert();
+    const div = document.createElement("div");
+    div.className = className;
+    div.appendChild(document.createTextNode(message));
+    //검색바 위에 삽입
+    const container = document.querySelector(".searchContainer");
+    const search = document.querySelector(".search");
+    container.insertBefore(div, search);
+    //3초가 지나면 alert가 사라짐
+    setTimeout(() => {
+      this.clearAlert();
+    }, 3000);
+  }
+
+  clearAlert() {
+    const currentAlert = document.querySelector(".alert");
+    if (currentAlert) {
+      currentAlert.remove();
+    }
+  }
+
+  clearProfile() {
+    this.profile.innerHTML = "";
+  }
 }
