@@ -26,6 +26,9 @@ function createNewTodo() {
   // 바로 타이핑 할수 있도록disabled 속성 제거
   inputEl.removeAttribute("disabled");
   inputEl.focus();
+
+  // 로컬스토리지에 저장
+  saveToLocalStorge();
 }
 
 function createTodoElement(item) {
@@ -68,11 +71,20 @@ function createTodoElement(item) {
   // input 작성시 item.text에 값 할당
   inputEl.addEventListener("input", (e) => {
     item.text = e.target.value;
+    saveToLocalStorge();
   });
   console.log(todos);
   //input 수정 방지 이벤트
   inputEl.addEventListener("blur", () => {
     inputEl.setAttribute("disabled", "");
+    saveToLocalStorge();
+  });
+  //input 엔터 이벤트
+  inputEl.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      inputEl.setAttribute("disabled", "");
+    }
+    saveToLocalStorge();
   });
   //checkbox 클릭 이벤트
   checkbox.addEventListener("change", (e) => {
@@ -82,17 +94,41 @@ function createTodoElement(item) {
     } else {
       itemEl.classList.remove("complete");
     }
+    saveToLocalStorge();
   });
   //수정 버튼 클릭
   editBtnEl.addEventListener("click", () => {
     inputEl.removeAttribute("disabled");
     inputEl.focus();
+    saveToLocalStorge();
   });
   //삭제 버튼 클릭
   removeBtnEl.addEventListener("click", () => {
     itemEl.remove();
     todos = todos.filter((todo) => todo.id !== item.id);
+    saveToLocalStorge();
   });
 
   return { itemEl, inputEl, editBtnEl, removeBtnEl };
 }
+
+function saveToLocalStorge() {
+  localStorage.setItem("my_todos", JSON.stringify(todos));
+}
+
+function loadFromLocalStorage() {
+  const data = localStorage.getItem("my_todos");
+  if (data) {
+    todos = JSON.parse(data);
+  }
+}
+
+function displayTodos() {
+  loadFromLocalStorage();
+  todos.forEach((todo) => {
+    const { itemEl } = createTodoElement(todo);
+    list.append(itemEl);
+  });
+}
+
+displayTodos();
