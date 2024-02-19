@@ -1,8 +1,8 @@
 import CONFIG from "./config.js";
-class Github {
+export class Github {
   constructor() {
     this.client_id = CONFIG.CLIENT_ID;
-    this.client_secret = ONFIG.CLIENT_SECRET;
+    this.client_secret = CONFIG.CLIENT_SECRET;
     this.repos_count = 5;
     this.repos_sort = "created: asc";
   }
@@ -17,7 +17,7 @@ class Github {
 
     const profile = await profileResponse.json();
     const repos = await repoResponse.json();
-
+    console.log(profile);
     return {
       profile,
       repos,
