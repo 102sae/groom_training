@@ -14,6 +14,7 @@ searchUser.addEventListener("keyup", (e) => {
         console.log("User not found");
       } else {
         ui.showProfile(data.profile);
+        ui.showRepos(data.repos);
       }
     });
   }

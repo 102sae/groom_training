@@ -18,6 +18,7 @@ export class Github {
     const profile = await profileResponse.json();
     const repos = await repoResponse.json();
     console.log(profile);
+    console.log(repos);
     return {
       profile,
       repos,
