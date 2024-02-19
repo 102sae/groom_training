@@ -65,5 +65,20 @@ function createTodoElement(item) {
   itemEl.append(inputEl);
   itemEl.append(actionsEl);
 
+  // input 작성시 item.text에 값 할당
+  inputEl.addEventListener("input", (e) => {
+    item.text = e.target.value;
+  });
+  console.log(todos);
+  //checkbox 클릭 이벤트
+  checkbox.addEventListener("change", (e) => {
+    item.complete = e.target.checked;
+    if (item.complete) {
+      itemEl.classList.add("complete");
+    } else {
+      itemEl.classList.remove("complete");
+    }
+  });
+
   return { itemEl, inputEl, editBtnEl, removeBtnEl };
 }
