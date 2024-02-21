@@ -4,6 +4,7 @@ export class UI {
   }
 
   showProfile(user) {
+    this.clearSkeleton(); // 스켈레톤을 지우고
     this.profile.innerHTML = `
     <div class="card card-body mb-3">
     <div class="row">
@@ -58,7 +59,7 @@ export class UI {
             <span class="badge badge-secondary">Watchers: ${
               repo.watchers_count
             }</span>
-            <span class="badge badge-success">Forks: ${repo.forms_count}</span>
+           
             </div>
           </div>
         </div>
@@ -80,7 +81,7 @@ export class UI {
     //1초가 지나면 alert가 사라짐
     setTimeout(() => {
       this.clearAlert();
-    }, 1000);
+    }, 3000);
   }
 
   clearAlert() {
@@ -92,5 +93,46 @@ export class UI {
 
   clearProfile() {
     this.profile.innerHTML = "";
+  }
+
+  // 스켈레톤 표시
+  showSkeleton() {
+    const reposSkeleton = Array(this.repos_count)
+      .fill("")
+      .map(
+        () => `
+      <div class="card card-body mb-2">
+        <div class="skeleton-repo-stats mb-2"></div>
+        <div class="skeleton-repo-stats mb-2"></div>
+        <div class="skeleton-repo-stats mb-2"></div>
+      </div>
+  `
+      )
+      .join("");
+    this.profile.innerHTML = `<div class="profile-skeleton">
+    <div class="card card-body mb-3">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="skeleton-avatar img-fluid mb-2"></div>
+        </div>
+        <div class="col-md-9">
+          <div class="skeleton-list list-group-item mb-1"></div>
+          <div class="skeleton-list list-group-item mb-1"></div>
+          <div class="skeleton-list list-group-item mb-1"></div>
+          <div class="skeleton-list list-group-item mb-1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  ${reposSkeleton}
+  `;
+  }
+
+  // 스켈레톤을 지우는 메소드
+  clearSkeleton() {
+    const skeleton = document.querySelector(".profile-skeleton");
+    if (skeleton) {
+      skeleton.remove();
+    }
   }
 }

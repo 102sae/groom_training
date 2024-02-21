@@ -1,0 +1,53 @@
+.skeleton-avatar {
+  width: 100%;
+  height: 100%;
+}
+
+.skeleton-btn {
+  height: 20px;
+}
+
+.skeleton-badge,
+.skeleton-list {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.profile-skeleton .skeleton-avatar,
+.profile-skeleton .skeleton-list {
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  border-radius: 5px;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: skeleton-loading 1s infinite;
+}
+
+@keyframes skeleton-loading {
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.skeleton-repo-stats {
+  height: 50px;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  border-radius: 5px;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: skeleton-loading 1s infinite;
+}
