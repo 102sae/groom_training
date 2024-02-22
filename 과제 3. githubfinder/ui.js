@@ -62,10 +62,12 @@ export class UI {
            
             </div>
           </div>
+         
         </div>
       `;
     });
 
+    output += `<h3 class="page-heading mb-3">Commit Graph</h3>`;
     document.getElementById("repos").innerHTML = output;
   }
 
@@ -133,6 +135,18 @@ export class UI {
     const skeleton = document.querySelector(".profile-skeleton");
     if (skeleton) {
       skeleton.remove();
+    }
+  }
+
+  //잔디 보여주기
+  showCommit() {
+    const gridContainer = document.querySelector(".grid-container");
+    const daysIn6Months = 200; // 대략 6개월치 날짜 수
+
+    for (let i = 0; i < daysIn6Months; i++) {
+      const dayElement = document.createElement("div");
+      dayElement.classList.add("day");
+      gridContainer.appendChild(dayElement);
     }
   }
 }
