@@ -54,6 +54,29 @@ class Cell {
   }
 }
 
+exportBtn.onclick = function (e) {
+  let csv = "";
+  for (let i = 0; i < spreadsheet.length; i++) {
+    if (i === 0) continue;
+    csv +=
+      spreadsheet[i]
+        .filter((item) => !item.isHeader)
+        .map((item) => item.data)
+        .join(",") + "\r\n";
+  }
+
+  const csvObj = new Blob([csv]);
+  console.log("csvObj", csvObj);
+
+  const csvUrl = URL.createObjectURL(csvObj);
+  console.log("csvUrl", csvUrl);
+
+  const a = document.createElement("a");
+  a.href = csvUrl;
+  a.download = "spreadsheet name.csv";
+  a.click();
+};
+
 initSpreadsheet();
 
 function initSpreadsheet() {
@@ -72,12 +95,12 @@ function initSpreadsheet() {
       }
 
       if (i === 0) {
-        cellData = alphabets[j - 1];
+        cellData = alphabets[j - 1]; // 첫 번째 row의 컬럼은 undefined
         isHeader = true;
         disabled = true;
       }
 
-      // 첫 번째 row의 컬럼은 "";
+      // 첫 번째 row의 컬럼은 undefined에서 빈 문자열로 바꿔주기 " ";
       if (!cellData) {
         cellData = "";
       }
