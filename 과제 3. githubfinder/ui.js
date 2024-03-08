@@ -150,3 +150,36 @@ export class UI {
     }
   }
 }
+
+// Assuming you have a list of commit dates in ISO format
+const commits = ["2024-01-19T11:04:43Z" /* more dates */];
+
+// Calculate start date (200 days ago)
+const startDate = new Date();
+startDate.setDate(startDate.getDate() - 200);
+
+// Initialize commit counts for each day
+const commitCounts = new Array(200).fill(0);
+
+// Process commits
+commits.forEach((commitDate) => {
+  const date = new Date(commitDate);
+  const diffTime = Math.abs(date - startDate);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  if (diffDays < 200) {
+    commitCounts[diffDays]++;
+  }
+});
+
+// Update the grid
+const gridContainer = document.querySelector(".grid-container");
+commitCounts.forEach((count, index) => {
+  const dayElement = document.createElement("div");
+  dayElement.classList.add("day");
+  // Customize dayElement based on count, e.g., adding a title with the count
+  if (count > 0) {
+    dayElement.title = `Commits: ${count}`;
+    // Apply different styles or elements based on commit count
+  }
+  gridContainer.appendChild(dayElement);
+});
